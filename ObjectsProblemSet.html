@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var user = {
+        name: "Zod",
+        age: 1000
+    }
+
+    /* We start by creating a function that takes an object as a parameter */
+
+    function getValues(obj) {
+        var arr = []
+
+//__________________________________BEGIN for-in loop
+
+        /*Here we create a for-in loop  that iterates through the object. We then push the values of the object we are iterating through to an array */
+
+        for (val in obj) {
+            arr.push(obj[val]);  //_____Push values to array
+
+        }
+//__________________________________END for-in loop
+
+        return arr;
+    }
+
+    console.log(getValues(user)); // [ 'Zod', 1000 ];
+
+    user = {
+        name: "Zod",
+        age: 1000,
+
+    }
+
+    function keysThenVals(obj) {
+        var objArr = Object.keys(obj);
+
+        for (value in obj) {
+            objArr.push(obj[value]);
+
+        }
+
+        return objArr
+    }
+
+    console.log(keysThenVals(user));
+
+
+    // last problem to check keys vs array... it's alive.. yay...
+
+
+    matchArray({name: "fred", sex: "male", hero: "yes"}, ["name", "sex", "hero"]);
+    function matchArray(obj, array) {
+        var objArr = Object.keys(obj)
+        console.log(objArr);
+        var testbool = true;
+
+        //for (value in )
+        for (var i = 0; i < array.length; i++) {
+            testbool = testbool && testforvalue(array[i], objArr);
+            console.log(testbool);
+        }
+        return testbool;
+    }
+
+    function testforvalue(value, array) {
+        var test = false;
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] == value) {
+                test = true;
+                break;
+            }
+        }
+        return test;
+    }
+
+</script>
+</body>
+</html>
